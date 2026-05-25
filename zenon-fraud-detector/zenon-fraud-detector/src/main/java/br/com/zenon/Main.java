@@ -1,17 +1,28 @@
 package br.com.zenon;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+
+
+import static br.com.zenon.TransactionType.*;
+
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+        TransactionCostumer tcO1 = new TransactionCostumer("C1231006815",170136.0,160296.36);
+        TransactionCostumer tcR1 = new TransactionCostumer("M1979787155",0.0,0.0);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
-        }
+        TransactionCostumer tcO2 = new TransactionCostumer("C1280323807",850002.52,0.0);
+        TransactionCostumer tcR2 = new TransactionCostumer("C873221189",6510099.11,7360101.63);
+
+        Transaction transaction1 = new Transaction(
+                1,PAYMENT,9839.64, tcO1,tcR1,false,false);
+
+        Transaction transaction2 = new Transaction(
+                743,CASH_OUT,850002.52,tcO2,tcR2,true,false);
+
+        IO.println(transaction1);
+        IO.println("---------------");
+        IO.println(transaction2);
+
     }
 }
+
